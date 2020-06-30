@@ -24,8 +24,8 @@ def bubble_sort():
                            ''',
                            is_algorithm=True,
                            img='img/bubble_sort.png',
-                           min_value=10,
-                           max_value=100)
+                           min_value=50,
+                           max_value=450)
 
 
 @app.route('/sorting/insertion-sort')
@@ -40,8 +40,8 @@ def insertion_sort():
                            ''',
                            is_algorithm=True,
                            img='img/insertion_sort.png',
-                           min_value=10,
-                           max_value=100)
+                           min_value=50,
+                           max_value=450)
 
 
 @app.route('/sorting/merge-sort')
