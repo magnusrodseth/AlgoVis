@@ -1,0 +1,12 @@
+{% extends 'sorting_layout.html' %}
+
+{% block complexity %}
+O(n<sup>2</sup>)
+{% endblock %}
+
+{% block custom_script %}
+<script src="{{ url_for('static', filename='js/sorting/resources/components.js') }}"></script>
+<script src="{{ url_for('static', filename='js/sorting/resources/constants.js') }}"></script>
+<script src="{{ url_for('static', filename='js/sorting/resources/generate.js') }}"></script>
+<script src="{{ url_for('static', filename='js/sorting/bubble_sort.js') }}"></script>
+{% endblock %}

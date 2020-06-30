@@ -1,0 +1,9 @@
+{% extends 'sorting_layout.html' %}
+
+{% block complexity %}
+O(n<sup>2</sup>)
+{% endblock %}
+
+{% block custom_script %}
+<script src="{{ url_for('static', filename='js/sorting/insertion_sort.js') }}"></script>
+{% endblock %}

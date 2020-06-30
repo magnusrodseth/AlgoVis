@@ -1,0 +1,10 @@
+{% extends 'sorting_layout.html' %}
+
+{% block complexity %}
+O(n log<sub>2</sub>n)
+{% endblock %}
+
+
+{% block custom_script %}
+<script src="{{ url_for('static', filename='js/sorting/merge_sort.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,231 @@
+{% extends 'navbar.html' %}
+
+<!-- Header with navbar from navbar.html goes here -->
+{% block main %}
+<main role="main" class="container">
+    <div class="col-md">
+        <!-- Row for header, h1 tag -->
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4 col-xs-1 text-center mt-1 mb-1">
+                <h1 class="display-4 mt-3">
+                    {{ title }}
+                </h1>
+                <hr />
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+
+        <!-- Row for buttons -->
+        <div class="row d-flex justify-content-center mt-1 mb-2">
+            <!-- Dropdown for "Create maze" -->
+            <div class="dropdown">
+                <button class="maze-dropdown btn btn-light dropdown-toggle ml-2 mr-2" type="button"
+                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Create maze
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="recursive-division-button dropdown-item" href="#">Recursive division</a>
+                    <a class="random-maze-button dropdown-item" href="#">Random maze</a>
+                </div>
+            </div>
+
+            <button type="button" class="detour-button btn btn-light ml-2 mr-2">Add detour</button>
+            <button type="button" class="reset-button btn btn-light ml-2 mr-2">Reset grid</button>
+            <button type="button" class="visualize-button btn btn-light ml-2 mr-2" style="background-color: #ffe5d0;">
+                <i>Visualize {{ title }}</i>
+            </button>
+
+
+            <!-- Dropdown for "Speed" -->
+            <div class="dropdown">
+                <button class="speed-dropdown btn btn-light dropdown-toggle ml-2 mr-2" type="button"
+                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Select speed
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="slow-speed dropdown-item" href="#">Slow</a>
+                    <a class="medium-speed dropdown-item" href="#">Medium</a>
+                    <a class="fast-speed dropdown-item" href="#">Fast</a>
+                </div>
+            </div>
+
+            <!-- Button for tutorial -->
+            <button type="button" class="tutorial-button btn btn-light ml-2 mr-2">How {{ title }} works</button>
+        </div>
+
+        <!-- Row for node descriptions -->
+        <div class="row d-flex justify-content-center mt-3 mb-1">
+            <!-- Divs for start, detour and stop nodes -->
+            <div>
+                <img src="{{url_for('static',filename='img/nodes/start_node.png')}}" alt="Start node"
+                    class="img-thumbnail ml-3 mr-1" id="start-node" style="width: 50px; height:50px;">
+                <span class="lead">Start node</span>
+            </div>
+            <div>
+                <img src="{{url_for('static',filename='img/nodes/detour_node.png')}}" alt="Detour node"
+                    class="img-thumbnail ml-3 mr-1" id="detour-node" style="width: 50px; height:50px;">
+                <span class="lead">Detour node</span>
+            </div>
+            <div>
+                <img src="{{url_for('static',filename='img/nodes/target_node.png')}}" alt="Target node"
+                    class="img-thumbnail ml-3 mr-1" id="target-node" style="width: 50px; height:50px;">
+                <span class="lead">Target node</span>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center mt-3 mb-1">
+            <!-- Divs for wall nodes  -->
+            <div>
+                <img src="{{url_for('static',filename='img/nodes/unvisited_node.png')}}" alt="Unvisited node"
+                    class="img-thumbnail ml-3 mr-1" style="width: 50px; height:50px;">
+                <span class="lead">Unvisited node</span>
+            </div>
+            <div>
+                <img src="{{url_for('static',filename='img/nodes/visited_node.png')}}" alt="Visited node"
+                    class="img-thumbnail ml-3 mr-1" style="width: 50px; height:50px;">
+                <span class="lead">Visited node</span>
+            </div>
+            <div>
+                <img src="{{url_for('static',filename='img/nodes/optimal_path_node.png')}}" alt="Optimal path node"
+                    class="img-thumbnail ml-3 mr-1" style="width: 50px; height:50px;">
+                <span class="lead">Optimal path node</span>
+            </div>
+            <div>
+                <img src="{{url_for('static',filename='img/nodes/wall_node.png')}}" alt="Wall node"
+                    class="img-thumbnail ml-3 mr-1" style="width: 50px; height:50px;">
+                <span class="lead">Wall node</span>
+            </div>
+        </div>
+
+        <!-- hr tag to visually split descriptions from grid -->
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4 col-xs-1 text-center mt-1 mb-1">
+                <hr>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+
+        <!-- Grid -->
+        <div class="row d-flex justify-content-center mt-3 mb-1">
+            <div class="grid-div"></div>
+        </div>
+
+        <!-- Tutorial -->
+        <div class="tutorial-div" style="display:none;">
+            <span class="page-counter lead mt-2 mb-2"></span>
+            <!--  Tutorial: Introduction -->
+            <div class="tutorial-pages" id="page-0">
+                <h1>Introduction</h1>
+                <p class="lead m-4">
+                    This quick tutorial will show you all the features of AlgoVis Pathfinding.
+                    <hr class="mr-4 ml-4">
+                </p>
+                <p class="lead m-4">
+                    First, you will learn what a pathfinding algorithm is and when to use it.
+                    Then, you will learn exactly how the {{ title }} pathfinding algorithm works.
+                    Lastly, this tutorial teaches you how to utilize wall nodes and the detour node in a
+                    user-friendly manner.
+                </p>
+                <p class="lead m-4">
+                    You can exit the tutorial any time you want, and begin playing with the {{ title }} pathfinding
+                    algorithm.
+                </p>
+                <img src="{{ url_for('static',filename='img/tutorial/lightbulb.png') }}" alt="Lightbulb"
+                    class="tutorial-img">
+            </div>
+            <!-- Tutorial: What is a pathfinding algorithm? -->
+            <div class="tutorial-pages" id="page-1">
+                <h1>What is a pathfinding algorithm?</h1>
+                <p class="lead m-4">
+                    <i>“In graph theory, the shortest path problem is the problem of finding a path between two vertices
+                        (or nodes) in a graph such that the sum of the weights of its constituent edges is
+                        minimized.”
+                    </i>
+                    <hr class="mr-4 ml-4">
+                </p>
+                <p class="lead m-4">
+                    That's a quite dense explanation. Let us put it this way:
+                    <br>
+                    A pathfinding algorithm seeks to find the most efficient path between a start node and a target
+                    node, based on some given criteria.
+                    <br>
+                    That criteria may be walls blocking the path, or a detour node to be bypassed before reaching the
+                    target node.
+                </p>
+                <img src="{{ url_for('static',filename='img/tutorial/destination.png') }}" alt="Destination"
+                    class="tutorial-img">
+            </div>
+            <div class="tutorial-pages" id="page-2">
+                <h1>How {{ title }} works</h1>
+                <p class="lead m-4">
+                    {{ description }}
+                    <hr class="mr-4 ml-4">
+                </p>
+                <p class="lead m-4">
+                    All nodes keep track of their previous node.
+                    We can thus use a linked list to backtrack through the traversal and <br>
+                    <b>find the shortest path from
+                        start to finish</b>.
+                </p>
+                <img src="{{ url_for('static',filename='vid/gif/dijkstra.gif') }}" alt="Dijkstra GIF"
+                    class="tutorial-gif">
+            </div>
+            <!-- Tutorial: Adding wall nodes -->
+            <div class="tutorial-pages" id="page-3">
+                <h1>Adding wall nodes</h1>
+                <p class="lead m-4">
+                    You can add wall nodes by simply clicking and dragging across the 2D grid.
+                    Alternatively, you can click on individual nodes to turn them into a wall.
+                    <br>
+                    Click on a wall node to revert the change.
+                    <hr class="mr-4 ml-4">
+                </p>
+                <p class="lead m-4">
+                    {{ title }} will calculate the most efficient way around the maze you create.
+                </p>
+                <p>
+                    <small class="text-muted">Note: Because the grid gets emptied and redrawn for each
+                        node update,
+                        <br>
+                        the user will experience some trouble with making a continuous wall.
+                        <br>
+                        This is a work in progress.
+                    </small>
+                </p>
+                <img src="{{ url_for('static',filename='vid/gif/wall_node.gif') }}" alt="Wall node GIF"
+                    class="tutorial-gif">
+            </div>
+            <div class="tutorial-pages" id="page-4">
+                <h1>Adding detour node</h1>
+                <p class="lead ml-2 mr-2">
+                    Officia officia corporis neque sint. Ab accusamus officiis tenetur sapiente
+                    perferendis officia molestias sit praesentium. Qui et dolorem ea nisi voluptatibus est id. Autem
+                    laborum nam. Molestiae rem tempora quam praesentium placeat atque.
+                </p>
+                <img src="{{ url_for('static',filename='img/nodes/detour_node.png') }}" alt="Detour node GIF"
+                    class="tutorial-img">
+            </div>
+
+            <div class="row d-flex justify-content-center mt-3 mb-1">
+                <button class="exit-tutorial-button btn btn-light ml-2 mr-2" style="background-color: #ffe5d0;">
+                    Exit tutorial</button>
+                <button class="previous-page-button btn btn-light ml-2 mr-2" style="background-color: #ffe5d0;">
+                    Previous page</button>
+                <button class="next-page-button btn btn-light ml-2 mr-2" style="background-color: #ffe5d0;">
+                    Next page</button>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
+
+{%block custom_script%}
+<script src="{{ url_for('static', filename='js/pathfinding/resources/tutorial.js') }}"></script>
+<script src="{{ url_for('static', filename='js/pathfinding/resources/constants.js') }}"></script>
+<script src="{{ url_for('static', filename='js/pathfinding/resources/eventHandlers.js') }}"></script>
+<script src="{{ url_for('static', filename='js/pathfinding/resources/node.js') }}"></script>
+<script src="{{ url_for('static', filename='js/pathfinding/resources/components.js') }}"></script>
+<script src="{{ url_for('static', filename='js/pathfinding/resources/grid.js') }}"></script>
+<script src="{{ url_for('static', filename='js/pathfinding/resources/maze.js') }}"></script>
+{% endblock %}

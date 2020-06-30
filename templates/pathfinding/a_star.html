@@ -1,0 +1,20 @@
+<!-- Future plan: When done with A* pathfinding, refactor the HTML to
+    pathfinding_layout.html to scale it with later algorithms.
+    For now, I'm just developing the dijkstra.html. -->
+
+{% extends 'pathfinding_layout.html' %}
+
+{{main}}
+
+<!-- Script for pathfinding algorithm goes at the bottom.
+    All helper scripts are located above. -->
+{% block custom_script %}
+<script src="{{ url_for('static', filename='js/pathfinding/tutorial.js') }}"></script>
+<script src="{{ url_for('static', filename='js/pathfinding/constants.js') }}"></script>
+<script src="{{ url_for('static', filename='js/pathfinding/eventHandlers.js') }}"></script>
+<script src="{{ url_for('static', filename='js/pathfinding/node.js') }}"></script>
+<script src="{{ url_for('static', filename='js/pathfinding/components.js') }}"></script>
+<script src="{{ url_for('static', filename='js/pathfinding/grid.js') }}"></script>
+<script src="{{ url_for('static', filename='js/pathfinding/maze.js') }}"></script>
+<script src="{{ url_for('static', filename='js/pathfinding/dijkstra.js') }}"></script>
+{% endblock %}

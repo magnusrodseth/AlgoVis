@@ -1,0 +1,131 @@
+/* Styling for container with blocks */
+.data-container {
+    width: 600px;
+    height: 300px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.block {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: #d0d8ff;
+    transition: 0.15s all ease;
+}
+
+.block__id {
+    position: absolute;
+    top: -24px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Styling for container with blocks */
+
+/* Styling for slider for array size */
+.slidecontainer {
+    width: 50%;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 25px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #778ceb;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #778ceb;
+    cursor: pointer;
+}
+
+/* Styling for slider for array size */
+
+/* Styling for the modal */
+.modalDiv {
+    position: absolute;
+    top: 80px;
+    right: 25px;
+}
+
+/* Styling for the modal */
+
+/* Styling for grid */
+
+.node-div {
+    display: inline-block;
+    background-color: #f8f9fa;
+    margin-left: 2px;
+    margin-right: 2px;
+    width: 40px;
+    height: 40px;
+}
+
+.start-node {
+    content: url("img/start_node.png");
+}
+
+.target-node {
+    content: url("img/target_node.png");
+}
+
+.wall-node {
+    background-color: #34495e !important;
+}
+
+/* Styling for grid */
+
+/* Styling for tutorial */
+
+.tutorial-div {
+    position: absolute;
+    /* Make sure this div is displayed in front of everything else */
+    z-index: 1000;
+    background-color: #f8f9fa;
+    width: 90%;
+    height: 75%;
+    border: 2px solid #34495e;
+    border-radius: 5px;
+    text-align: center;
+    float: right;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.tutorial-img {
+    width: 15%;
+    height: 15%;
+}
+
+.tutorial-gif {
+    width: 20%;
+    height: 20%;
+}
+
+/* Styling for tutorial */
