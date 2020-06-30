@@ -1,28 +1,7 @@
 const container = document.querySelector(".data-container");
-
 const slowSortButton = document.querySelector(".slowSortButton");
-slowSortButton.addEventListener("click", function () {
-    bubbleSort(delay = 1000);
-    slowSortButton.disabled = true;
-    mediumSortButton.disabled = true;
-    fastSortButton.disabled = true;
-});
-
 const mediumSortButton = document.querySelector(".mediumSortButton");
-mediumSortButton.addEventListener("click", function () {
-    bubbleSort(delay = 250);
-    sortButton.disabled = true;
-    mediumSortButton.disabled = true;
-    fastSortButton.disabled = true;
-});
-
 const fastSortButton = document.querySelector(".fastSortButton");
-fastSortButton.addEventListener("click", function () {
-    bubbleSort(delay = 50);
-    sortButton.disabled = true;
-    mediumSortButton.disabled = true;
-    fastSortButton.disabled = true;
-});
 
 const slider = document.querySelector(".array-size-range");
 slider.oninput = function () {
@@ -40,7 +19,8 @@ slider.oninput = function () {
     generateBlocks(array);
 
     // Make these buttons interactable again.
-    sortButton.disabled = false;
+    slowSortButton.disabled = false;
+    mediumSortButton.disabled = false;
     fastSortButton.disabled = false;
     return;
 }

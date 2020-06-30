@@ -31,7 +31,7 @@ slider.oninput = function () {
     generateBlocks(array);
 
     // Make these buttons interactable again.
-    sortButton.disabled = false;
+    slowSortButton.disabled = false;
     fastSortButton.disabled = false;
     return;
 }
@@ -84,7 +84,7 @@ slowSortButton.addEventListener("click", function () {
 // Sorting buttons are disabled to prevent error in sorting.
 mediumSortButton.addEventListener("click", function () {
     mergeSort(array, animationSpeedMs = 250);
-    sortButton.disabled = true;
+    slowSortButton.disabled = true;
     mediumSortButton.disabled = true;
     fastSortButton.disabled = true;
 })
@@ -94,7 +94,7 @@ mediumSortButton.addEventListener("click", function () {
 // Sorting buttons are disabled to prevent error in sorting.
 fastSortButton.addEventListener("click", function () {
     mergeSort(array, animationSpeedMs = 1);
-    sortButton.disabled = true;
+    slowSortButton.disabled = true;
     mediumSortButton.disabled = true;
     fastSortButton.disabled = true;
 })

@@ -1,24 +1,3 @@
-function swap(el1, el2) {
-    return new Promise(resolve => {
-        const style1 = window.getComputedStyle(el1);
-        const style2 = window.getComputedStyle(el2);
-
-        const transform1 = style1.getPropertyValue("transform");
-        const transform2 = style2.getPropertyValue("transform");
-
-        el1.style.transform = transform2;
-        el2.style.transform = transform1;
-
-        // Wait for the transition to end!
-        window.requestAnimationFrame(function () {
-            setTimeout(() => {
-                container.insertBefore(el2, el1);
-                resolve();
-            }, delay);
-        });
-    });
-}
-
 // In this 'async' function, the 'await' keyword is permitted.
 // Executes the bubble sort, and animates the change.
 async function bubbleSort(delay) {
@@ -63,3 +42,24 @@ async function bubbleSort(delay) {
     mediumSortButton.disabled = false;
     fastSortButton.disabled = false;
 }
+
+slowSortButton.addEventListener("click", function () {
+    bubbleSort(delay = 1000);
+    slowSortButton.disabled = true;
+    mediumSortButton.disabled = true;
+    fastSortButton.disabled = true;
+});
+
+mediumSortButton.addEventListener("click", function () {
+    bubbleSort(delay = 250);
+    slowSortButton.disabled = true;
+    mediumSortButton.disabled = true;
+    fastSortButton.disabled = true;
+});
+
+fastSortButton.addEventListener("click", function () {
+    bubbleSort(delay = 50);
+    slowSortButton.disabled = true;
+    mediumSortButton.disabled = true;
+    fastSortButton.disabled = true;
+});

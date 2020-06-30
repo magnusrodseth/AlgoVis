@@ -45,3 +45,24 @@ async function insertionSort(delay) {
     mediumSortButton.disabled = false;
     fastSortButton.disabled = false;
 }
+
+slowSortButton.addEventListener("click", function () {
+    insertionSort(delay = 1000);
+    slowSortButton.disabled = true;
+    mediumSortButton.disabled = true;
+    fastSortButton.disabled = true;
+});
+
+mediumSortButton.addEventListener("click", function () {
+    insertionSort(delay = 250);
+    slowSortButton.disabled = true;
+    mediumSortButton.disabled = true;
+    fastSortButton.disabled = true;
+});
+
+fastSortButton.addEventListener("click", function () {
+    insertionSort(delay = 50);
+    slowSortButton.disabled = true;
+    mediumSortButton.disabled = true;
+    fastSortButton.disabled = true;
+});
